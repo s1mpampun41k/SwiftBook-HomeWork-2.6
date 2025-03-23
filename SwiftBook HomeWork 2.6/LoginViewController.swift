@@ -7,17 +7,18 @@
 
 import UIKit
 
+enum typeOfAlert {
+    case suggestUserName
+    case suggestPassword
+    case incorrectPasswordOrUserName
+}
+
 class LoginViewController: UIViewController {
     
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
     var user = User()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
     
     override func shouldPerformSegue(
         withIdentifier identifier: String,
@@ -27,7 +28,8 @@ class LoginViewController: UIViewController {
               passwordTF.text == user.password else {
             showAllert(
                 withTitle: "Invalid login or password",
-                andMassage: "Please, enter correct login and password"
+                andMassage: "Please, enter correct login and password",
+                for: .incorrectPasswordOrUserName
             )
             
             return false
@@ -46,15 +48,27 @@ class LoginViewController: UIViewController {
     }
 
 
-    private func showAllert(withTitle title: String, andMassage message: String) {
+    private func showAllert(
+        withTitle title: String,
+        andMassage message: String,
+        for type: typeOfAlert
+    ) {
         let alert = UIAlertController(
             title: title,
             message: message,
             preferredStyle: .alert
         )
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            self.userNameTF.text = ""
-            self.passwordTF.text = ""
+            switch type {
+            case .suggestUserName:
+                self.userNameTF.text = ""
+            case .suggestPassword:
+                self.passwordTF.text = ""
+            default:
+                self.userNameTF.text = ""
+                self.passwordTF.text = ""
+            }
+            
         }
         alert.addAction(okAction)
         present(alert, animated: true)
@@ -64,11 +78,19 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func suggestUserName() {
-        showAllert(withTitle: "Oops", andMassage: "Your name is User 😉")
+        showAllert(
+            withTitle: "Oops",
+            andMassage: "Your name is User 😉",
+            for: .suggestUserName
+        )
     }
     
     @IBAction func suggestPassword() {
-        showAllert(withTitle: "Oops", andMassage: "Your name is Password 😉")
+        showAllert(
+            withTitle: "Oops",
+            andMassage: "Your password is Password 😉",
+            for: .suggestPassword
+        )
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
