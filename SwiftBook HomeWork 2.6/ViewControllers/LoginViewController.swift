@@ -18,18 +18,24 @@ class LoginViewController: UIViewController {
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
-    var user = User()
+    private var newUser = User.getUser()
+    private var myPerson = Person.getPerson()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        userNameTF.text = newUser.name
+        passwordTF.text = newUser.password
+    }
     
     override func shouldPerformSegue(
         withIdentifier identifier: String,
         sender: Any?
     ) -> Bool {
-        guard userNameTF.text == user.name,
-              passwordTF.text == user.password else {
+        guard userNameTF.text == newUser.name,
+              passwordTF.text == newUser.password else {
             showAllert(
                 withTitle: "Invalid login or password",
-                andMassage: "Please, enter correct login and password",
-                for: .incorrectPasswordOrUserName
+                andMassage: "Please, enter correct login and password"
             )
             
             return false
@@ -37,9 +43,28 @@ class LoginViewController: UIViewController {
         
         return true
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let welcomeVC = segue.destination as? WelcomeViewController
-        welcomeVC?.userName = userNameTF.text
+        
+        if let tabBarVC = segue.destination as? UITabBarController {
+            tabBarVC.viewControllers?.forEach { viewController in
+                if let welcomeVC = viewController as? WelcomeViewController {
+                    welcomeVC.userName = userNameTF.text
+                    welcomeVC.myName = myPerson.name
+                    welcomeVC.mySurname = myPerson.surname
+                } else if let navigationVC = viewController as? UINavigationController {
+                    if let homeVC = navigationVC.topViewController as? HomeViewController {
+                        homeVC.title = "\(myPerson.name) \(myPerson.surname)"
+                        homeVC.name = myPerson.name
+                        homeVC.surname = myPerson.surname
+                        homeVC.age = String(myPerson.age)
+                        homeVC.education = myPerson.education
+                        homeVC.location = myPerson.location
+                        homeVC.myBio = myPerson.aboutMe
+                    }
+                }
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -50,25 +75,15 @@ class LoginViewController: UIViewController {
 
     private func showAllert(
         withTitle title: String,
-        andMassage message: String,
-        for type: typeOfAlert
-    ) {
+        andMassage message: String
+        ) {
         let alert = UIAlertController(
             title: title,
             message: message,
             preferredStyle: .alert
         )
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            switch type {
-            case .suggestUserName:
-                self.userNameTF.text = ""
-            case .suggestPassword:
-                self.passwordTF.text = ""
-            default:
-                self.userNameTF.text = ""
-                self.passwordTF.text = ""
-            }
-            
+            self.passwordTF.text = ""
         }
         alert.addAction(okAction)
         present(alert, animated: true)
@@ -80,35 +95,21 @@ class LoginViewController: UIViewController {
     @IBAction func suggestUserName() {
         showAllert(
             withTitle: "Oops",
-            andMassage: "Your name is User 😉",
-            for: .suggestUserName
+            andMassage: "Your name is User 😉"
         )
     }
     
     @IBAction func suggestPassword() {
         showAllert(
             withTitle: "Oops",
-            andMassage: "Your password is Password 😉",
-            for: .suggestPassword
+            andMassage: "Your password is Password 😉"
         )
+        passwordTF.text = ""
+
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-        _ = segue.source as? WelcomeViewController
         userNameTF.text = ""
         passwordTF.text = ""
     }
 }
-
-final class User {
-    
-    let name: String
-    let password: String
-    
-    init() {
-        name = "User"
-        password = "Password"
-    }
-    
-}
-

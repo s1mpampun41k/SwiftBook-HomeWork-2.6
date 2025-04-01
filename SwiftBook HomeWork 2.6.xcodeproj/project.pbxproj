@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A5F17342D92E08000F601AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F17332D92E08000F601AC /* HomeViewController.swift */; };
+		1A5F17362D92E74800F601AC /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F17352D92E74800F601AC /* Person.swift */; };
+		1A5F17392D92F9AD00F601AC /* BioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F17382D92F9AD00F601AC /* BioViewController.swift */; };
+		1A5F173C2D9A979C00F601AC /* GradientBackgroundConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F173B2D9A979C00F601AC /* GradientBackgroundConfiguration.swift */; };
 		1AA9C3F02D8D6A4200F4AC6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9C3EF2D8D6A4200F4AC6D /* AppDelegate.swift */; };
 		1AA9C3F22D8D6A4200F4AC6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9C3F12D8D6A4200F4AC6D /* SceneDelegate.swift */; };
 		1AA9C3F42D8D6A4200F4AC6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9C3F32D8D6A4200F4AC6D /* LoginViewController.swift */; };
@@ -14,9 +18,14 @@
 		1AA9C3FC2D8D6A4300F4AC6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA9C3FB2D8D6A4300F4AC6D /* Assets.xcassets */; };
 		1AA9C3FF2D8D6A4300F4AC6D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1AA9C3FE2D8D6A4300F4AC6D /* Base */; };
 		1AA9C4092D8D916800F4AC6D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9C4082D8D916800F4AC6D /* WelcomeViewController.swift */; };
+		1AA9C4122D91FA5200F4AC6D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9C4112D91FA5200F4AC6D /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A5F17332D92E08000F601AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1A5F17352D92E74800F601AC /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		1A5F17382D92F9AD00F601AC /* BioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioViewController.swift; sourceTree = "<group>"; };
+		1A5F173B2D9A979C00F601AC /* GradientBackgroundConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundConfiguration.swift; sourceTree = "<group>"; };
 		1AA9C3EC2D8D6A4200F4AC6D /* SwiftBook HomeWork 2.6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftBook HomeWork 2.6.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AA9C3EF2D8D6A4200F4AC6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AA9C3F12D8D6A4200F4AC6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +35,7 @@
 		1AA9C3FE2D8D6A4300F4AC6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AA9C4002D8D6A4300F4AC6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AA9C4082D8D916800F4AC6D /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		1AA9C4112D91FA5200F4AC6D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A5F173A2D9A975D00F601AC /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				1A5F173B2D9A979C00F601AC /* GradientBackgroundConfiguration.swift */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
 		1AA9C3E32D8D6A4200F4AC6D = {
 			isa = PBXGroup;
 			children = (
@@ -58,16 +76,53 @@
 		1AA9C3EE2D8D6A4200F4AC6D /* SwiftBook HomeWork 2.6 */ = {
 			isa = PBXGroup;
 			children = (
-				1AA9C3EF2D8D6A4200F4AC6D /* AppDelegate.swift */,
-				1AA9C3F12D8D6A4200F4AC6D /* SceneDelegate.swift */,
-				1AA9C3F32D8D6A4200F4AC6D /* LoginViewController.swift */,
-				1AA9C4082D8D916800F4AC6D /* WelcomeViewController.swift */,
-				1AA9C3F52D8D6A4200F4AC6D /* Main.storyboard */,
+				1A5F173A2D9A975D00F601AC /* Configurations */,
+				1AA9C4102D91FA3F00F4AC6D /* Models */,
+				1AA9C40F2D91F92300F4AC6D /* App */,
+				1AA9C40C2D91F87900F4AC6D /* ViewControllers */,
+				1AA9C40D2D91F8DC00F4AC6D /* StoryBoards */,
 				1AA9C3FB2D8D6A4300F4AC6D /* Assets.xcassets */,
-				1AA9C3FD2D8D6A4300F4AC6D /* LaunchScreen.storyboard */,
-				1AA9C4002D8D6A4300F4AC6D /* Info.plist */,
 			);
 			path = "SwiftBook HomeWork 2.6";
+			sourceTree = "<group>";
+		};
+		1AA9C40C2D91F87900F4AC6D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1AA9C3F32D8D6A4200F4AC6D /* LoginViewController.swift */,
+				1AA9C4082D8D916800F4AC6D /* WelcomeViewController.swift */,
+				1A5F17332D92E08000F601AC /* HomeViewController.swift */,
+				1A5F17382D92F9AD00F601AC /* BioViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1AA9C40D2D91F8DC00F4AC6D /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				1AA9C3F52D8D6A4200F4AC6D /* Main.storyboard */,
+				1AA9C3FD2D8D6A4300F4AC6D /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		1AA9C40F2D91F92300F4AC6D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1AA9C4002D8D6A4300F4AC6D /* Info.plist */,
+				1AA9C3F12D8D6A4200F4AC6D /* SceneDelegate.swift */,
+				1AA9C3EF2D8D6A4200F4AC6D /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1AA9C4102D91FA3F00F4AC6D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1AA9C4112D91FA5200F4AC6D /* User.swift */,
+				1A5F17352D92E74800F601AC /* Person.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,7 +199,12 @@
 				1AA9C3F42D8D6A4200F4AC6D /* LoginViewController.swift in Sources */,
 				1AA9C4092D8D916800F4AC6D /* WelcomeViewController.swift in Sources */,
 				1AA9C3F02D8D6A4200F4AC6D /* AppDelegate.swift in Sources */,
+				1A5F173C2D9A979C00F601AC /* GradientBackgroundConfiguration.swift in Sources */,
+				1A5F17392D92F9AD00F601AC /* BioViewController.swift in Sources */,
+				1AA9C4122D91FA5200F4AC6D /* User.swift in Sources */,
+				1A5F17362D92E74800F601AC /* Person.swift in Sources */,
 				1AA9C3F22D8D6A4200F4AC6D /* SceneDelegate.swift in Sources */,
+				1A5F17342D92E08000F601AC /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +358,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5LZYZMWA7J;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "SwiftBook HomeWork 2.6/Info.plist";
+				INFOPLIST_FILE = "SwiftBook HomeWork 2.6/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -330,7 +390,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5LZYZMWA7J;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "SwiftBook HomeWork 2.6/Info.plist";
+				INFOPLIST_FILE = "SwiftBook HomeWork 2.6/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
